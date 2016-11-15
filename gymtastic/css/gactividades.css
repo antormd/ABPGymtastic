@@ -1,0 +1,16 @@
+img#footer{
+	height: 80px;
+	width: 273px;
+	display:block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+footer {
+	width: 100%;
+	position: absolute;
+	margin-bottom: 0px;
+    padding-top: 20px;
+}
+div#mas{
+	float: right;
+}
