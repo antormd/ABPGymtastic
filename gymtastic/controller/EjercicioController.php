@@ -25,8 +25,54 @@
 			$ejercicios = new Ejercicio();
 			return $ejercicios->getEjercicios();
 		}
-	
-public static function crearEjercicio(){
+
+	public static function modificarEjercicio(){
+		if(!isset($_SESSION)) session_start();
+		if($_SESSION['usuario']->getTipo()=='1'){
+
+		$nombre = $_POST['nombre'];
+		$descripcion = $_POST['descripcion'];
+		$tipo = $_POST['tipo'];
+		$repeticiones = $_POST['repeticiones'];
+		$carga = $_POST['carga'];
+		$creadoPor = $_SESSION['usuario']->getIdUsuario();
+		$idEjercicio = $_POST['idEjercicio'];
+		// Recibo los datos de la imagen
+		$nombre_img = $_FILES['imagen']['name'];
+		$tipe = $_FILES['imagen']['type'];
+		$tamano = $_FILES['imagen']['size'];
+		//Comprobamos el tipo de la Imagen, SI es correcto, obtenemos los datos de la ruta y de la imagen
+						if($_FILES['imagen']['type']=="image/jpeg" || $_FILES['imagen']['type']=="image/png" || $_FILES['imagen']['type']=="image/jpg"){
+							//Comprobamos si los datosintroducidos son Correctos
+							if(Ejercicio::registerValid($nombre,$descripcion,$tipo,$repeticiones)){
+								//Creamos ruta donde guardamos la imagen yle damos nombre 
+							    $ruta = "../imag";
+								$nombreArchivo = $_FILES['imagen']['name'];
+								move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta."/".$nombreArchivo);
+								//Lamamos a la funcion que modifica el Ejercicio
+								Ejercicio::update($idEjercicio,$nombre,$descripcion,$tipo,$repeticiones,$carga,$nombreArchivo);
+								//Redireccionamos a vista
+								
+								header("Location: ../view/gejercicios.php"); 
+								}else{
+								ob_start(); 
+								header("refresh: 3; url = ../view/modificarejercicio.php?id=$idEjercicio");  
+								$errors = array();
+								$errors["general"] = "ERROR.El formulario no fue bien completado.";
+								echo $errors["general"]; 
+								ob_end_flush();
+							}
+						}else{
+							ob_start(); 
+							header("refresh: 3; url = ../view/modificarejercicio.php?id=$idEjercicio");  
+							$errors = array();
+							$errors["general"] = "ERROR. Formato de imagen no válido.";
+							echo $errors["general"]; 
+						  	ob_end_flush();
+						}
+	}
+}
+	public static function crearEjercicio(){
 				if(!isset($_SESSION)) session_start();
 				if($_SESSION['usuario']->getTipo()=='1'){
 
