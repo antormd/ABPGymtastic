@@ -34,14 +34,15 @@ div#mas{
 }
 
 div#container-ejercicios{
+    width: 970px;
+    margin-left: 0px;
     background-image: url("imagenes/fondoformulario.png");
     border: solid;
     border-radius: 5px;
     border-color: black;
     margin-top: 30px;
-    width: 80%;
     margin-left: 50px;
- 
+
 }
 label {
     display: inline-block;
