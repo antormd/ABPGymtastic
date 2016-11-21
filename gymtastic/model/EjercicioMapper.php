@@ -4,12 +4,17 @@ include_once "../conexion/ConexionBD.php";
 class EjercicioMapper{
 
 
-    public static function update($idEjercicio,$nombre,$descripcion,$tipo, $repeticiones, $carga)
+    public static function update($idEjercicio,$nombre,$descripcion,$tipo, $repeticiones, $carga, $imagen)
     {
-        global $connect;
-        $resultado = mysqli_query($connect, "UPDATE ejercicio SET nombre=\"$nombre\", descripcion =\"$descripcion\", tipo =\"$tipo\", repeticiones= \"$repeticiones\",carga=\"$carga\" WHERE idEjercicio=\"$idEjercicio\"");
-           return $resultado;
-            
+        $db = new ConexionBD();
+        $resultado = "UPDATE ejercicio SET nombre=\"$nombre\", descripcion =\"$descripcion\", tipo =\"$tipo\", repeticiones= \"$repeticiones\",carga=\"$carga\",imagen=\"$imagen\"  WHERE idEjercicio=\"$idEjercicio\"";
+        $db->consulta($resultado) or die('Error al crear el ejercicio');
+        
+        $db->desconectar();
+        return true;
+   
+    
+        
     }
 
     //Elimina de la base de datos segun la primary key pasada
@@ -21,8 +26,8 @@ class EjercicioMapper{
 
     //Borra la relacion del ejercicio que se pasa con las tablas de ejercicios
     public static function deleteRelacion($idEjercicio){
-        global $connect;
-        $resultado = mysqli_query($connect, "DELETE FROM ejercicio_tablaejercicios WHERE idEjercicio=\"$idEjercicio\"");
+        $db = new ConexionBD();
+        $resultado = $db->consulta("DELETE FROM ejercicio_tablaejercicios WHERE idEjercicio=\"$idEjercicio\"");
         return $resultado;
     }
 

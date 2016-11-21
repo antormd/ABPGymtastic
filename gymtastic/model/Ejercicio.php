@@ -166,8 +166,8 @@ class Ejercicio {
   }
 
 
-  public static function update($idEjercicio,$nombre,$descripcion,$tipo, $repeticiones, $carga,$creadoPor, $imagen){
-      EjercicioMapper::update($idEjercicio,$nomEjercicio,$descripEjerc,$tipoEjerc, $repeticiones, $carga, $creadoPor, $imagen);
+  public static function update($idEjercicio,$nombre,$descripcion,$tipo, $repeticiones, $carga, $imagen){
+      EjercicioMapper::update($idEjercicio,$nombre,$descripcion,$tipo, $repeticiones, $carga, $imagen);
   } 
 
 
