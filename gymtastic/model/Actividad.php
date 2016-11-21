@@ -1,20 +1,22 @@
 <!--
 ======================================================================
-Modelo de la tabla Usuario
+Modelo de la tabla Actividad
 ======================================================================
 -->
 
 <?php
-// file: model/Usuario.php
+// file: model/Actividad.php
 /**
- * Class Usuario
+ * Class Actividad
  * 
- * Representa un usuario en la web
+ * Representa una actividad en la web
  * 
  */
-include '../model/ConexionBD.php';
+include_once "../conexion/ConexionBD.php";
+
 class Actividad {
  
+  private $idActividad;
   private $descripcion;
   private $aula;
   private $aforo;
@@ -26,7 +28,8 @@ class Actividad {
  
    // El constructor
  
-  public function __construct($descripcion=NULL, $aula=NULL, $aforo=NULL, $plazasocupadas=NULL,$nombre=NULL,$fechaact=NULL,$imagen=NULL) {
+  public function __construct($idActividad=NULL,$descripcion=NULL, $aula=NULL, $aforo=NULL, $plazasocupadas=NULL,$nombre=NULL,$fechaact=NULL,$imagen=NULL) {
+    $this->idActividad = $idActividad;
     $this->descripcion = $descripcion;
     $this->aula = $aula;
     $this->aforo = $aforo; 
@@ -35,6 +38,11 @@ class Actividad {
 	  $this->fechaact = $fechaact;
     $this->imagen = $imagen;      
 
+  }
+  
+  // id actividad
+  public function getId() {
+    return $this->descripcion;
   }
   
   // descripcion

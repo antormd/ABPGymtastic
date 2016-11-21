@@ -39,14 +39,14 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestión
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-           <li><a href="#actividades">Gestionar actividades</a></li>
-           <li><a href="#deportistas">Gestionar deportistas</a></li>
-           <li><a href="#entrenadores">Gestionar entrenadores</a></li>
-           <li><a href="#notificaciones">Gestionar notificaciones</a></li>
+           <li><a href='gactividades.php'>Gestionar actividades</a></li>
+           <li><a href='gdeportistas.php'>Gestionar deportistas</a></li>
+           <li><a href='gentrenadores.php'>Gestionar entrenadores</a></li>
+           <li><a href='gnotificaciones.php'>Gestionar notificaciones</a></li>
         </ul>
        </li>
         <li>
-        <li><a href="#perfil">Perfil</a></li>
+        <li><a href='gperfil.php'>Perfil</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

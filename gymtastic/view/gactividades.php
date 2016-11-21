@@ -61,9 +61,9 @@ include_once('../controller/controladoractividad.php');
   </div>
   </div>
   </nav>
-  <div id = "mas">
+ <!--<div id = "mas">
   <img  id = "logo" src="../css/imagenes/actividad+.png">
-  </div>
+  </div>-->
 
 
       <div id="tabla">
@@ -71,7 +71,7 @@ include_once('../controller/controladoractividad.php');
           <div id="content">
             <div class="inner">
               <!--INICIO SECCIÓN-->
-                  <h1 id="actividades">Actividades</h1>
+                  <h1 style="text-align: center;" id="actividades">Actividades</h1>
                     <br>
                       <table class="default">
                           <!-- Listar Actividades -->
@@ -81,13 +81,14 @@ include_once('../controller/controladoractividad.php');
                           <tr>
                            
                             <td width='5%'> <?php echo $act['nombre'] ?> </td>
-                            <td width='25%'> <?php echo $act['descripcion'] ?> </td>
+                            <td width='40%'> <?php echo $act['descripcion'] ?> </td>
                             <td width='5%'> <?php echo $act['aula'] ?> </td>
-                            <td width='5%'> <?php echo $act['fechaact'] ?> </td>
                             <td width='5%'> <?php echo $act['aforo'] ?> </td>
-                            <td width='5%'> <?php echo $act['plazasocupadas'] ?> </td>
-                            <td width='5%'><a class="icon-edit" href=""> <div class='glyphicon glyphicon-edit'> </div></a></td>
-                            <td width='5%'><a class="icon-trash" href=""> <div class='glyphicon glyphicon-trash'> </div></a></td>
+                            <td width='5%'> <?php echo $act['plazasOcupadas'] ?> </td>
+                            <td width='10%'> <?php echo $act['fechaAct'] ?> </td>
+                            <td width='10%'> <?php echo $act['hora'] ?> </td>
+                            <td width='10%'> <button href="#" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Modificar</button></td>
+                            <td width='10'>     <button href='eliminaractividad.php' class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button></a></td>
                           </tr>
                           <?php
                           }

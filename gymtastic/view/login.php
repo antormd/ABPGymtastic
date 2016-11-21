@@ -65,7 +65,7 @@
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action='../controller/logincontroller.php' method='POST'>
+  <form class="modal-content animate" action="../controller/defaultcontroller.php?controlador=usuario&accion=login" method='POST'>
     <div class="imgcontainer">
       <img id = "avatar" src="../css/imagenes/avatar.png" class="img-responsive" alt="Responsive image">
     </div>

@@ -14,26 +14,33 @@ Modelo de la tabla Usuario
  */
 class Usuario {
  
+  private $idUsuario;
   private $username;
-  private $contraseña;
+  private $password;
   private $nombre;
   private $apellidos;
   private $tipo;
-  private $fechanac;
+  private $fechaNac;
   
  
    // El constructor
  
-  public function __construct($username=NULL, $contraseña=NULL, $nombre=NULL, $apellidos=NULL,$tipo=NULL,$fechanac=NULL) {
+  public function __construct($idUsuario=NULL,$username=NULL, $password=NULL, $nombre=NULL, $apellidos=NULL,$tipo=NULL,$fechaNac=NULL) {
+    $this->idUsuario = $idUsuario;
     $this->username = $username;
-    $this->contraseña = $contraseña;
+    $this->password = $password;
     $this->nombre = $nombre; 
     $this->apellidos = $apellidos; 
 	  $this->tipo = $tipo;    
-	  $this->fechanac = $fechanac;    
+	  $this->fechaNac = $fechaNac;    
 
   }
   
+    // IdUsuario
+  public function getIdUsuario() {
+    return $this->idUsuario;
+  }
+
   // Username
   public function getUsername() {
     return $this->username;
@@ -43,13 +50,13 @@ class Usuario {
     $this->username = $username;
   }
   
-  // Contraseña
-  public function getContraseña() {
-    return $this->contraseña;
+  // password
+  public function getPassword() {
+    return $this->password;
   }  
    
-  public function setContraseña($contraseña) {
-    $this->contraseña = $contraseña;
+  public function setPassword($password) {
+    $this->password = $password;
   }
   
   // Nombre
@@ -80,11 +87,24 @@ class Usuario {
   }
 
   // Fechanac
-  public function getFechanac() {
+  public function getFechaNac() {
     return $this->fechanac;
   }
  
-  public function setFechanac($fechanac) {
+  public function setFechaNac($fechanac) {
     $this->fechanac = $fechanac;
+  }
+
+  //Comprobacion existe Usuario... Si existe usuario devuelve un Objeto Usuario
+  public static function obtenerDatos($username, $password) {
+    if ($username && $password) {
+        if ($res = UsuarioMapper::esValidoUsuario($username, $password)) {
+                return UsuarioMapper::findByUserName($username);
+        } else {
+                echo "ERROR: Usuario o contrase&ntildea incorrectos.";
+            }
+        } else {
+            return "ERROR, no existe el Ususario";
+        }
   }
 }

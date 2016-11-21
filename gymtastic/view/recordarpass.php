@@ -1,3 +1,11 @@
+<?php
+  include_once('../controller/defaultcontroller.php');
+  include_once('../model/ModeloGeneral.php');
+
+  if(!isset($_SESSION)) session_start();
+  $user=$_SESSION["usuario"];
+  if ($_SESSION["usuario"]->getTipo() =='2' || $_SESSION["usuario"]->getTipo() =='2' ){
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,3 +33,20 @@
   <input type="button" value="Volver al login" name="B4" OnClick="location.href='login.php' ">
   </body>
   </html>
+<?php
+  }else{
+        ob_start(); 
+         if (($_SESSION["usuario"]->getTipo()=='0')){
+            header("Location: ../Admin/principal.php");  
+          }else{
+             if($_SESSION["usuario"]->getTipo()=='1'){
+                  header("Location: ../Entrenador/principal.php");  
+             }else{
+               echo $_SESSION["usuario"]->getTipo();
+
+             }
+          }
+          
+        ob_end_flush();  
+  }
+?>

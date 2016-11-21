@@ -53,6 +53,7 @@ div#gperfil{
 	background-size: 100% 100%;
 	height: 400px;
 	width: 200px;
+	float: left;
 	margin-left: 50px; 
 	margin-right: 30px;
 	margin-bottom: 20px;
@@ -60,7 +61,7 @@ div#gperfil{
 }
 
 .navbar-default {
-    position: relative;
+    position: fixed;
     width: 100%;
 }
 

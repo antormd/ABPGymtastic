@@ -43,14 +43,12 @@ button#btCancelar {
 }
 
 button#btCrear {
-	-moz-box-shadow:inset 0px 1px 50px 0px #97c4fe;
-	-webkit-box-shadow:inset 0px 1px 50px 0px #97c4fe;
-	box-shadow:inset 0px 1px 50px 0px #97c4fe;
-	background-color:#3d94f6;
-	-moz-border-radius:42px;
-	-webkit-border-radius:42px;
-	border-radius:42px;
-	border:1px solid #337fed;
+    box-shadow: inset 0px 1px 50px 0px #547794;
+    background-color: #49424a;
+    -moz-border-radius: 42px;
+    -webkit-border-radius: 42px;
+    border-radius: 42px;
+    border: 1px solid #484149;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;

@@ -1,0 +1,56 @@
+.container {
+	background-image: url("imagenes/fondogris.png");
+    background-size: 100% 100%;
+ 
+}
+img#footer{
+	height: 80px;
+	width: 273px;
+	display:block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+footer {
+	width: 100%;
+	position: absolute;
+	margin-bottom: 0px;
+    padding-top: 20px;
+}
+div#mas{
+	float: right;
+}
+
+.navbar {
+    position: static;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+
+
+.container {
+    width: 100%;
+    height: 700px;
+}
+
+div#container-ejercicios{
+    background-image: url("imagenes/fondoformulario.png");
+    border: solid;
+    border-radius: 5px;
+    border-color: black;
+    margin-top: 30px;
+    width: 80%;
+    margin-left: 50px;
+ 
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: white;
+}
+input[type=file] {
+    display: block;
+    color: white;
+}
