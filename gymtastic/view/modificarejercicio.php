@@ -35,28 +35,35 @@ if(!isset($_SESSION)) session_start();
   </head>
   <body>
   </body>
-  <div class="container">
+  <div style="margin-left: 0px" class="container">
      
-     <h1>Modificar Ejercicio: <?php echo $ejercicio->getNombre();?></h1>
+     <h1 style="margin-left: 50px; color: white">Modificar Ejercicio: <?php echo $ejercicio->getNombre();?></h1>
 
      <div id="container-formulario">
      
 
        <!-- DIV FORMULARIO -->
-     <div id="container-formulario2" style="background:#0275d8; border: solid;border-radius:5px; border-color: black;">
+     <div style="color: white" id="container">
         <form action="../controller/defaultcontroller.php?controlador=ejercicio&accion=modificarEjercicio" method="POST" style="margin:10px;" enctype="multipart/form-data">
         <!-- COMIENZO ROW 2-->  
         <div class="row"> 
-          <!-- DIV NOMBRE EJER -->
-          <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
-              <label for="nomEjer">Nombre Ejercicio: </label>
-              <input type="text" required="" class="form-control" name="NomEjercicio" maxlength="30" placeholder="<?php echo $ejercicio->getNombre();?>">
-          </div>
+
+          <!-- DIV IMAGEN -->
+        <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4" id="imagen" style="margin-bottom: 20px;margin-top: 20px"><img src="../imag/ejercicio.png" style="max-width: 100%;max-height: 100%;"></div>
+
+
           <!-- DIV DESCRIP EJER -->
           <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-8">
               <label for="descEjer">Descripci&oacuten Ejercicio: </label>
-              <textarea class="form-control" required="" rows="4" name="DescripEjerc" placeholder="<?php echo $ejercicio->getDescripcion(); ?>" maxlength="500"></textarea>
+              <textarea class="form-control" required="" rows="4" name="descripcion" placeholder="<?php echo $ejercicio->getDescripcion(); ?>" maxlength="500"></textarea>
           </div>
+
+          <!-- DIV NOMBRE EJER -->
+          <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
+              <label for="nomEjer">Nombre Ejercicio: </label>
+              <input type="text" required="" class="form-control" name="nombre" maxlength="30" placeholder="<?php echo $ejercicio->getNombre();?>">
+          </div>
+        
           <!-- DIV TIPO EJER -->
           <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
               <label for="nomEjer">Tipo: </label>
@@ -65,7 +72,7 @@ if(!isset($_SESSION)) session_start();
           <!-- DIV REPETICIONES -->
           <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <label for="Repeticiones">Repeticiones: </label>
-              <input type="text" class="form-control" required="" name="Repeticiones" maxlength="15" placeholder="<?php echo $ejercicio->getRepeticiones(); ?>">
+              <input type="text" class="form-control" required="" name="repeticiones" maxlength="45" placeholder="<?php echo $ejercicio->getRepeticiones(); ?>">
           </div>
           <!-- DIV CARGA -->
           <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -74,7 +81,7 @@ if(!isset($_SESSION)) session_start();
           </div>
           <!-- DIV IMAGEN-->
           <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:30px;">
-              <label for="imgEjer">Subir Imagen: </label>
+              <label for="imgEjer">Remplazar Imagen: </label>
               <input type="file" required="" name="imagen">
           </div>
           
@@ -82,9 +89,7 @@ if(!isset($_SESSION)) session_start();
           </div> <!-- FIN ROW 2-->
           <input type="hidden" name="idEjercicio" value="<?php echo $ejercicio->getIdEjercicio();?>">
           <p style="text-align:center">
-          <button type="submit" class="btn btn-default1" style="margin-right: 10px;">
-            <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
-          </button>
+           <button id="btModificar" type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Modificar</button>
 
           <a href="gejercicios.php"><button type="button" class="btn btn-default2">Atr&aacutes</button></a></p>
         </form>
@@ -92,18 +97,6 @@ if(!isset($_SESSION)) session_start();
      </div>
 
   </div><!-- FIN CONTAINER -->
-  <footer>
-  <img id = "footer" src="../css/imagenes/footer.png" class="img-responsive" alt="Responsive image">
-  <div style="margin-top: 20px">
-    <p style= "text-align: center;">
-      Área de Benestar, Saúde e Deporte da Universidade de Vigo | <a href="mailto:deportes@uvigo.es">
-      deportes@uvigo.es
-      </a>
-      | Teléfono: 986 812 182 
-      
-    </p>
-  </div>
-  </footer>
   </html>
 <?php
   }else{

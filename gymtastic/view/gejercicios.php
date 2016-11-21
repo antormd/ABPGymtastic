@@ -49,7 +49,7 @@ if(!isset($_SESSION)) session_start();
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestión
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-           <li><a href="#ejerividades">Gestionar ejerividades</a></li>
+           <li><a href="#ejerividades">Gestionar actividades</a></li>
            <li><a href="#deportistas">Gestionar deportistas</a></li>
            <li><a href="#entrenadores">Gestionar entrenadores</a></li>
            <li><a href="#notificaciones">Gestionar notificaciones</a></li>
@@ -78,19 +78,6 @@ if(!isset($_SESSION)) session_start();
      <h1>Ejercicios</h1>
      <!-- BOTON MOSTRAR EJERCICIOS CREAR EJERCICIOS ELIMINAR EJERCICIOS-->
      <div class="row" style="margin-top: 20px; margin-bottom: 10px;">
-      <div class="btn-group col-xs-6 col-sm-3 col-md-3 col-lg-3" role="group" style="margin-top: 10px;">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-list" aria-hidden="true";></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li class="dropdown-header">Mostrar Ejercicios de:</li>
-            <li><a href="gestionEjercicios.php">Todos</a></li>
-            <li><a href="gestionEjerciciosFiltrado.php?filtrado=Brazos">Brazos</a></li>
-            <li><a href="gestionEjerciciosFiltrado.php?filtrado=Espalda">Espalda</a></li>
-            <li><a href="gestionEjerciciosFiltrado.php?filtrado=Pecho">Pecho</a></li>
-            <li><a href="gestionEjerciciosFiltrado.php?filtrado=Piernas">Piernas</a></li>
-        </ul>
-       </div>
 
        <div class="btn-group col-xs-6 col-sm-3 col-md-3 col-lg-3" role="group" style="margin-top: 10px;">
         <a href="crearejercicio.php" style="text-decoration: none;"><button type="button" class="btn btn-default1" id="botonCrear">Crear Ejercicio</button></a>
@@ -122,16 +109,7 @@ if(!isset($_SESSION)) session_start();
           ?>
 
       </div>
-      <!--  PAGINACION NO VISIBLE XS -->
-      <div id= "paginacion">
-        <ul class="pagination">
-          <li><a href="#">«</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">»</a></li>
-        </ul>
-      </div>
+
 
      </div>
 
