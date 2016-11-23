@@ -120,7 +120,7 @@ if(!isset($_SESSION)) session_start();
           <p style="text-align:center">
           <button id="btCrear" type="submit" style="margin-right: 10px;" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> Crear</button>
 
-          <a href="gactividadess.php"><button type="button" class="btn btn-default2">Atr&aacutes</button></a></p>
+          <a href="gactividades.php"><button type="button" class="btn btn-default2">Atr&aacutes</button></a></p>
         </form>
      </div> <!-- FIN FORMULARIO EJERCICIOS -->
 
