@@ -1,4 +1,3 @@
-
 <?php
 include_once('../controller/defaultcontroller.php');
 include_once('../model/ModeloGeneral.php');
@@ -31,7 +30,7 @@ if(!isset($_SESSION)) session_start();
   <body>
 
     <!-- Barra de navegacion-->
-  <nav style="top: 0px;" class="navbar navbar-default" role="navigation">
+  <nav style="top: 0px;margin-bottom: 0px;" class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
   <div class="navbar-header">
   <button style="margin-left: 5px" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -75,34 +74,53 @@ if(!isset($_SESSION)) session_start();
 
   <div class="container">
      
-     <h1>Ejercicios</h1>
+     <div style="margin-bottom: 20px;margin-left: 30px" class="row">
+     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+     <h1 >Lista de Ejercicios:</h1>
+     </div>
      <!-- BOTON MOSTRAR EJERCICIOS CREAR EJERCICIOS ELIMINAR EJERCICIOS-->
      <div class="row" style="margin-top: 20px; margin-bottom: 10px;">
 
-       <div class="btn-group col-xs-6 col-sm-3 col-md-3 col-lg-3" role="group" style="margin-top: 10px;">
-        <a href="crearejercicio.php" style="text-decoration: none;"><button type="button" class="btn btn-default1" id="botonCrear">Crear Ejercicio</button></a>
+       <div class="btn-group col-xs-6 col-sm-5 col-md-5 col-lg-5" role="group" style="margin-top: 10px;">
+        <a href="crearejercicio.php" style="text-decoration: none;"><img style="width: 300px;height: 150px;" src="../css/imagenes/add.png"> </a>
+       </div>
        </div>
 
        </div><!-- FIN BOTONES -->
 
-       <!-- DIV CONTENEDOR DE LOS EJERCICIOS -->
-     <div id="container-ejercicios">
-
-      <div class="row" style="margin-top: 20px;">
           <?php
           if($row!=null){ 
             foreach ($row as $ejer) {
           ?>
+          <div id="fila">
           <tr>
-                            <td width='10%'> <?php echo $ejer['nombre'] ?> </td>
-                            <td width='60%'> <?php echo $ejer['descripcion'] ?> </td>
-                            <td width='10%'> <?php echo $ejer['tipo'] ?> </td>
-                            <td width='5%'> <?php echo $ejer['repeticiones'] ?> </td>
-                            <td width='5%'> <?php echo $ejer['carga'] ?> </td>
+                           <div style="margin-bottom: 20px;margin-left: 30px" class="row">
+                          <!-- ROW IMAGEN -->
+                          <div id="imagen" class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
+                            <td><img style="width: 400px;height: 250px;" src="../imag/<?php echo $ejer['imagen'] ?>"> </td>
+                          </div>
+                          <!-- ROW NOMBRE -->
+                          <div style="margin-bottom: 5px" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <td width='10%'><strong>Nombre ejercicio: </strong><?php echo $ejer['nombre'] ?> </td>
+                          </div>
+                          <!-- ROW TIPO -->
+                          <div style="margin-bottom: 5px" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <td width='10%'><strong>Tipo: </strong><?php echo $ejer['tipo'] ?> </td>
+                          </div>
+                          <!-- ROW REPETICIONES -->
+                          <div style="margin-bottom: 15px" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <td width='10%'><strong>Repeticiones: </strong><?php echo $ejer['repeticiones'] ?> </td>
+                          </div>                          
+                          <!-- ROW BOTONES -->
+                          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             <td width='10%'>  <a href="modificarejercicio.php?id=<?php echo $ejer['idEjercicio']; ?>"><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Modificar</button></a></td>
                             <td width='10%'>   <a href="eliminarejercicio.php?id=<?php echo $ejer['idEjercicio']; ?>"><button  class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Eliminar</button></a></td>
-                          </tr>
-                          <br>
+                          </div>
+
+          </tr>
+
+          <br>
+          </div>
           <?php
             }
           }

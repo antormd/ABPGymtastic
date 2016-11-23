@@ -155,6 +155,8 @@
 							if(EjercicioMapper::exists($nombre)){
 								//Llamamos a la funcion que elimina la relacion Ejercicio-Tabla
 								Ejercicio::deleteEjercicioTabla($idEjercicio);
+								//Llamamos a la funcion que elimina la relacion Ejercicio-Sesion
+								Ejercicio::deleteEjercicioSesion($idEjercicio);
 								//LLamamos a la funcion que elimina el Ejercicio
 								Ejercicio::delete($idEjercicio);
 								//Redireccionamos a vista dependiendo del Usuario que modifico el Ejercicio

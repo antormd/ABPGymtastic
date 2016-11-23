@@ -4,7 +4,7 @@
 
   if(!isset($_SESSION)) session_start();
   $user=$_SESSION["usuario"];
-  if ($_SESSION["usuario"]->getTipo() =='2' || $_SESSION["usuario"]->getTipo() =='2' ){
+  if ($_SESSION["usuario"]->getTipo() =='2'){
 ?>
 <!DOCTYPE html>
 <html lang="en">

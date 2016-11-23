@@ -33,7 +33,6 @@ if(!isset($_SESSION)) session_start();
     <![endif]-->
   </head>
   <body>
-
   <h2 style="margin-left: 30px">¿Seguro de que quieres eliminar el siguiente ejercicio?</h2>
 
   
@@ -47,8 +46,8 @@ if(!isset($_SESSION)) session_start();
      <div id="container-ejercicios">
 
       <div class="row">
-    
-          <div class="col-xs-8 col-sm-4 col-md-4 col-lg-4" id="imagen" style="margin-bottom: 20px;"><img src="../imag/ejercicio.png" style="max-width: 100%;max-height: 100%;"></div>
+      
+          <div class="col-xs-8 col-sm-4 col-md-4 col-lg-4" id="imagen" style="margin-bottom: 20px;"><img src="../imag/<?php echo $ejercicio->getImagen()?>" style="max-width: 100%;max-height: 100%;"></div>
           <div style="padding-left: 30px; padding-top: 30px" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <pre style="background-color: transparent; border-color: white;color: white"><?php echo $ejercicio->getDescripcion(); ?>
           </pre>  

@@ -40,7 +40,6 @@ if(!isset($_SESSION)) session_start();
      <h1 style="margin-left: 50px; color: white">Modificar Ejercicio: <?php echo $ejercicio->getNombre();?></h1>
 
      <div id="container-formulario">
-     
 
        <!-- DIV FORMULARIO -->
      <div style="color: white" id="container">
@@ -49,7 +48,7 @@ if(!isset($_SESSION)) session_start();
         <div class="row"> 
 
           <!-- DIV IMAGEN -->
-        <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4" id="imagen" style="margin-bottom: 20px;margin-top: 20px"><img src="../imag/ejercicio.png" style="max-width: 100%;max-height: 100%;"></div>
+        <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4" id="imagen" style="margin-bottom: 20px;margin-top: 20px"><img src="../imag/<?php echo $ejercicio->getImagen()?>" style="max-width: 100%;max-height: 100%;"></div>
 
 
           <!-- DIV DESCRIP EJER -->

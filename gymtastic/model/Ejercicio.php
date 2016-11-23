@@ -142,7 +142,7 @@ class Ejercicio {
  public static function registerValid($nombre,$descripcion,$tipo,$repeticiones){
       $error = array();
       if (strlen($nombre) < 4 || strlen($nombre) > 15) {
-	     $error["nomEjercicio"] = "El nombre de Ejercicio debe tener entre 4 y 15 caracteres.";
+	     $error["nombre"] = "El nombre de Ejercicio debe tener entre 4 y 15 caracteres.";
       }
       if (strlen($descripcion) < 5 || strlen($descripcion) > 500) {
 	     $error["descripcion"] = "La descripcion del Ejercicio debe tener entre 5 y 500 caracteres.";	
@@ -178,6 +178,10 @@ class Ejercicio {
 
   public static function deleteEjercicioTabla($idEjercicio){
       EjercicioMapper::deleteRelacion($idEjercicio);
+  }
+
+  public static function deleteEjercicioSesion($idEjercicio){
+      EjercicioMapper::deleteRelacion2($idEjercicio);
   }
 }
 ?>
