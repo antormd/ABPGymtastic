@@ -147,6 +147,10 @@ class Usuario {
   public static function update($idUsuario,$nombre,$apellidos,$tipo, $username, $fechaNac, $password){
       UsuarioMapper::update($idUsuario,$nombre,$apellidos,$tipo, $username, $fechaNac, $password);
   }
+	
+  public static function update2($nombre,$apellidos,$username, $fechaNac, $password){
+      UsuarioMapper::update2($nombre,$apellidos,$username, $fechaNac, $password);
+  }
   
    public static function delete($idUsuario){
       UsuarioMapper::delete($idUsuario);
