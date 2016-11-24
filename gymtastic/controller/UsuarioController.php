@@ -160,5 +160,37 @@ public static function login() {
 					
 			}
 	
+			public static function getDatosUsuario($idUsuario){
+				$usuario = Usuario::getData($idUsuario);
+				return $usuario;
+
+			}
+
+			public static function modificarUsuario(){
+					if(!isset($_SESSION)) session_start();
+
+					$nombre = $_POST['nombre'];
+					$apellidos = $_POST['apellidos'];
+					$username = $_SESSION['username'];
+					$fechaNac = $_POST['fechaNac'];
+					$password = $_POST['passwordAntigua'];
+					$password2 = $_POST['password'];
+
+					if(Usuario::registerValid($username,$password)){
+						Usuario::update2($nombre,$apellidos,$username,$fechaNac,$password2);
+
+						header("Location: ../view/indexdeportista.php");
+
+						}else{
+						ob_start();
+						header("refresh: 3; url = ../view/modificarperfil.php?id=$username");
+						$errors = array();
+						$errors["general"] = "ERROR.El formulario no fue bien completado.";
+						echo $errors["general"];
+						ob_end_flush();
+						}
+					}
+	}
+	
 }
 ?>
