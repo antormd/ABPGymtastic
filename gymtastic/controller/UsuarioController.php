@@ -24,7 +24,11 @@ public static function login() {
 					if($usuario->getTipo()==1){
 						header("Location:../view/gejercicios.php");
 					}else{
-						header("Location:../view/recordarpass.php");
+						if($usuario->getTipo()==2){
+							header("Location:../view/indexdeportista.php");
+						}else{
+							header("Location:../view/recordarpass.php");
+						}
 					}
 				}
 			  }
