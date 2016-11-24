@@ -1,11 +1,10 @@
 <?php
-  include_once('../controller/DeportistaController.php');
   include_once('../controller/defaultcontroller.php');
 
 
   if(!isset($_SESSION)) session_start();
   $user=$_SESSION["usuario"]->getIdUsuario();
-  $row = PerfilController::obtenerDatos($user);
+   $row = UsuarioController::getDatosUsuario($user);
 
 ?>
 
