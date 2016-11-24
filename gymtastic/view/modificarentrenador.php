@@ -4,12 +4,12 @@ include_once('../model/ModeloGeneral.php');
 
 if(!isset($_SESSION)) session_start();
  $user=$_SESSION["usuario"];
- if ($_SESSION["usuario"]->getTipo() =='1'){
+ if ($_SESSION["usuario"]->getTipo() =='0'){
 
-    $idEjer = $_GET['id'];
-    $ejercicio = EjercicioController::getEjercicio($idEjer);
+    $idUser = $_GET['id'];
+    $usuario = UsuarioController::getEntrenador($idUser);
 
-    if ($_SESSION["usuario"]->getIdUsuario() == $ejercicio->getCreadoPor()){
+
 
 
 ?>
@@ -37,61 +37,58 @@ if(!isset($_SESSION)) session_start();
   </body>
   <div style="margin-left: 0px" class="container">
      
-     <h1 style="margin-left: 50px; color: white">Modificar Ejercicio: <?php echo $ejercicio->getNombre();?></h1>
+     <h1 style="margin-left: 50px; color: white">Modificar Entrenador: <?php echo $usuario->getUsername();?></h1>
 
      <div id="container-formulario">
      
 
        <!-- DIV FORMULARIO -->
+	
      <div style="color: white" id="container">
-        <form action="../controller/defaultcontroller.php?controlador=ejercicio&accion=modificarEjercicio" method="POST" style="margin:10px;" enctype="multipart/form-data">
+        <form action="../controller/defaultcontroller.php?controlador=usuario&accion=modificarEntrenador" method="POST" style="margin:10px;" enctype="multipart/form-data">
         <!-- COMIENZO ROW 2-->  
         <div class="row"> 
 
-          <!-- DIV IMAGEN -->
-        <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4" id="imagen" style="margin-bottom: 20px;margin-top: 20px"><img src="../imag/ejercicio.png" style="max-width: 100%;max-height: 100%;"></div>
-
-
           <!-- DIV DESCRIP EJER -->
-          <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-8">
-              <label for="descEjer">Descripci&oacuten Ejercicio: </label>
-              <textarea class="form-control" required="" rows="4" name="descripcion" placeholder="<?php echo $ejercicio->getDescripcion(); ?>" maxlength="500"></textarea>
+          <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
+              <label for="apeEntr">Apellidos entrenador: </label>
+              <input class="form-control" required="" rows="4" name="apellidos" placeholder="<?php echo $usuario->getApellidos(); ?>" maxlength="500"></input>
           </div>
 
           <!-- DIV NOMBRE EJER -->
           <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
-              <label for="nomEjer">Nombre Ejercicio: </label>
-              <input type="text" required="" class="form-control" name="nombre" maxlength="30" placeholder="<?php echo $ejercicio->getNombre();?>">
+              <label for="nomEntr">Nombre entrenador: </label>
+              <input type="text" required="" class="form-control" name="nombre" maxlength="30" placeholder="<?php echo $usuario->getNombre();?>">
           </div>
         
-          <!-- DIV TIPO EJER -->
-          <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
-              <label for="nomEjer">Tipo: </label>
-              <input type="text" required="" class="form-control" name="tipo" maxlength="45" placeholder="<?php echo $ejercicio->getTipo(); ?>">
-          </div> 
+  
           <!-- DIV REPETICIONES -->
           <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="Repeticiones">Repeticiones: </label>
-              <input type="text" class="form-control" required="" name="repeticiones" maxlength="45" placeholder="<?php echo $ejercicio->getRepeticiones(); ?>">
+              <label for="username">Nombre de usuario: </label>
+              <input type="text" class="form-control" required="" name="username" maxlength="45" placeholder="<?php echo $usuario->getUsername(); ?>">
           </div>
           <!-- DIV CARGA -->
           <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="Carga">Peso: </label>
-              <input type="number" min="0" required="" name="carga" placeholder="<?php echo $ejercicio->getCarga(); ?>" class="form-control">
+              <label for="password">Contraseña: </label>
+              <input type="password" min="0" required="" name="password" placeholder="<?php echo $usuario->getPassword(); ?>" class="form-control">
           </div>
           <!-- DIV IMAGEN-->
           <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:30px;">
-              <label for="imgEjer">Remplazar Imagen: </label>
-              <input type="file" required="" name="imagen">
+              <label for="fechaNacimiento">Fecha Nacimiento: </label>
+              <input type="date"  required="" name="fechaNac">
           </div>
+		  
+		     <?php
+	   print_r($usuario);
+	   ?>
           
             
           </div> <!-- FIN ROW 2-->
-          <input type="hidden" name="idEjercicio" value="<?php echo $ejercicio->getIdEjercicio();?>">
+          <input type="hidden" name="idUsuario" value="<?php echo $usuario->getIdUsuario();?>">
           <p style="text-align:center">
            <button id="btModificar" type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Modificar</button>
 
-          <a href="gejercicios.php"><button type="button" class="btn btn-default2">Atr&aacutes</button></a></p>
+          <a href="geentrenadores.php"><button type="button" class="btn btn-default2">Atr&aacutes</button></a></p>
         </form>
       </div> <!-- FIN FORMULARIO EJERCICIOS -->
      </div>
@@ -99,11 +96,7 @@ if(!isset($_SESSION)) session_start();
   </div><!-- FIN CONTAINER -->
   </html>
 <?php
-  }else{
-    echo "UPS... No tienes permiso para modificar un ejercicio que no has creado, volviendo a gestion de ejercicios...";
-    ob_start();
-    header("refresh: 3; url = ../view/gejercicios.php"); 
-  }
+
 }else{
         ob_start(); 
              if($_SESSION["usuario"]->getTipo()=='0'){

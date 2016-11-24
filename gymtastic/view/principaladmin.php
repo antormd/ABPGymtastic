@@ -1,11 +1,3 @@
-<?php
-include_once('../controller/defaultcontroller.php');
-include_once('../model/ModeloGeneral.php');
-
-if(!isset($_SESSION)) session_start();
- $user=$_SESSION["usuario"];
- if ($_SESSION["usuario"]->getTipo() =='0'){
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,6 +94,39 @@ if(!isset($_SESSION)) session_start();
 
     </div>
     </div>
+    <!--
+     <div class="container-fluid" style="padding-top: 20px" id = "pagina">
+  <div class="row">
+
+        <a name = "perfil"  href='gperfil.php'>
+        <div class="col-md-3" id = "gperfil">
+        </div>
+        </a>
+
+        <div style="margin-top: 50px;" id = "gestion">
+        <a name = "deportistas" href='gdeportistas.php'>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id = "gdeportistas" >
+        </div>
+        </a>
+
+        <a name = "entrenadores" href='gentrenadores.php'>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id = "gentrenadores">
+        </div>
+        </a>
+
+        <a name = "actividades" href='gactividades.php'>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id = "gactividades">
+        </div>
+        </a>
+
+        <a name = "notificaciones" href='gnotificaciones.php'>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id = "gnotificaciones">
+        </div>
+        </a>
+        </div>
+
+    </div>
+    -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -122,14 +147,3 @@ if(!isset($_SESSION)) session_start();
   </div>
   </footer>
   </html>
-  <?php
-  }else{
-        ob_start(); 
-                header("Location: = /../../index.php"); 
-             
-          
-          
-        ob_end_flush();  
-      }
-
-?>

@@ -4,7 +4,7 @@
 
   if(!isset($_SESSION)) session_start();
   $user=$_SESSION["usuario"];
-  if ($_SESSION["usuario"]->getTipo() =='2'){
+  print_r($user);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,19 +34,5 @@
   </body>
   </html>
 <?php
-  }else{
-        ob_start(); 
-         if (($_SESSION["usuario"]->getTipo()=='0')){
-            header("Location: ../Admin/principal.php");  
-          }else{
-             if($_SESSION["usuario"]->getTipo()=='1'){
-                  header("Location: ../Entrenador/principal.php");  
-             }else{
-               echo $_SESSION["usuario"]->getTipo();
-
-             }
-          }
-          
-        ob_end_flush();  
-  }
+ 
 ?>

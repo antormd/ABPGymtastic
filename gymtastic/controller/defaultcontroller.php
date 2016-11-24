@@ -2,7 +2,8 @@
 //Incluimos todos los controladores
 	include_once('EjercicioController.php');
 	include_once('UsuarioController.php');
-	include_once('ActividadController.php');
+	include_once('controladoractividad.php');
+	include_once('logout.php');
 //Incluir todos los modelos de nuestro sistema
 	include_once('../model/ModeloGeneral.php');
 //Llamamos alcontrolador y su accion

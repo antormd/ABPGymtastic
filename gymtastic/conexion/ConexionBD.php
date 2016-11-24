@@ -3,8 +3,8 @@
 class ConexionBD {
     var $conexion;
     
-    public function __construct($host="localhost",$user="admin",
-                                $pass="12345", $db="gymtastic"){
+    public function __construct($host="localhost",$user="root",
+                                $pass="", $db="gymtastic"){
         $this->conexion = mysqli_connect($host, $user, $pass, $db);
         
         // Check connection

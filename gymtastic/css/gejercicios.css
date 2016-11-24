@@ -6,7 +6,6 @@ img#footer{
   	margin-right: auto;
 }
 footer {
-	color: black;
 	width: 100%;
 	position: absolute;
 	margin-bottom: 0px;
@@ -14,23 +13,4 @@ footer {
 }
 div#mas{
 	float: right;
-}
-.container {
-	width: 100%;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: white;
-    background-image: url("imagenes/fondogris.png");
-    background-size: 100% 100%;
-}
-div#imagen{
-	margin-bottom: 15px;
-	width: 405px;
-	height: 255px;
-	border: solid;
-	border-radius: 5px;
-	border-color: black;
-	padding-left: 0px;
-	padding-right: 0px;
 }

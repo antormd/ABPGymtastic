@@ -1,11 +1,5 @@
 <?php
-include_once('../controller/defaultcontroller.php');
-include_once('../model/ModeloGeneral.php');
-
-if(!isset($_SESSION)) session_start();
- $user=$_SESSION["usuario"];
- if ($_SESSION["usuario"]->getTipo() =='0'){
-  $row = ActividadController::getAll();
+include_once('../controller/controladoractividad.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +24,7 @@ if(!isset($_SESSION)) session_start();
   <body>
 
  <!-- Barra de navegacion-->
-  <nav style="top: 0px;margin-bottom: 0px" class="navbar navbar-default" role="navigation">
+  <nav style="top: 0px;" class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
   <div class="navbar-header">
   <button style="margin-left: 5px" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -67,65 +61,42 @@ if(!isset($_SESSION)) session_start();
   </div>
   </div>
   </nav>
+ <!--<div id = "mas">
+  <img  id = "logo" src="../css/imagenes/actividad+.png">
+  </div>-->
 
-  <div class="container">
-     
-     <div style="margin-bottom: 20px;margin-left: 30px" class="row">
-     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-     <h1 >Lista de Actividades:</h1>
-     </div>
- 
-     <div class="row" style="margin-top: 20px; margin-bottom: 10px;">
 
-       <div class="btn-group col-xs-6 col-sm-5 col-md-5 col-lg-5" role="group" style="margin-top: 10px;">
-        <a href="crearactividad.php" style="text-decoration: none;"><img style="width: 300px;height: 150px;" src="../css/imagenes/add.png"> </a>
-       </div>
-       </div>
-
-       </div><!-- FIN BOTONES -->
-
-          <?php
-          if($row!=null){ 
-            foreach ($row as $act) {
-          ?>
-          <div id="fila">
-          <tr>
-                           <div style="margin-bottom: 20px;margin-left: 30px" class="row">
-                          
-                          <div id="imagen" class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
-                            <td><img style="width: 400px;height: 250px;" src="../imag/<?php echo $act['imagen'] ?>"> </td>
-                          </div>
-                          
-                          <div style="margin-bottom: 5px" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            <td width='10%'><strong>Nombre Actividad: </strong><?php echo $act['nombre'] ?> </td>
-                          </div>
-                          
-                          <div style="margin-bottom: 5px" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            <td width='10%'><strong>Aula: </strong><?php echo $act['aula'] ?> </td>
-                          </div>
-                          
-                          <div style="margin-bottom: 15px" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            <td width='10%'><strong>Fecha: </strong><?php echo $act['fechaAct'] ?> </td>
-                          </div>   
-
-                          <div style="margin-bottom: 15px" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            <td width='10%'><strong>Hora: </strong><?php echo $act['hora'] ?> </td>
-                          </div>                         
-                          <!-- ROW BOTONES -->
-                          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            <td width='10%'>  <a href="modificaractividad.php?id=<?php echo $act['idActividad']; ?>"><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Modificar</button></a></td>
-                            <td width='10%'>   <a href="eliminaractividad.php?id=<?php echo $act['idActividad']; ?>"><button  class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Eliminar</button></a></td>
-                          </div>
-
-          </tr>
-
-          <br>
-          </div>
-          <?php
-            }
-          }
-          ?>
-
+      <div id="tabla">
+        <!-- Contenido -->
+          <div id="content">
+            <div class="inner">
+              <!--INICIO SECCIÓN-->
+                  <h1 style="text-align: center;" id="actividades">Actividades</h1>
+                    <br>
+                      <table class="default">
+                          <!-- Listar Actividades -->
+                          <?php 
+                          foreach ($arrayActividades as $act)  {
+                          ?>
+                          <tr>
+                           
+                            <td width='5%'> <?php echo $act['nombre'] ?> </td>
+                            <td width='40%'> <?php echo $act['descripcion'] ?> </td>
+                            <td width='5%'> <?php echo $act['aula'] ?> </td>
+                            <td width='5%'> <?php echo $act['aforo'] ?> </td>
+                            <td width='5%'> <?php echo $act['plazasOcupadas'] ?> </td>
+                            <td width='10%'> <?php echo $act['fechaAct'] ?> </td>
+                            <td width='10%'> <?php echo $act['hora'] ?> </td>
+                            <td width='10%'> <button href="#" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Modificar</button></td>
+                            <td width='10'>     <button href='eliminaractividad.php' class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button></a></td>
+                          </tr>
+                          <?php
+                          }
+                          ?>
+                        </table>
+                    <!-- FIN TABLA -->
+              </div>
+            </div>
       </div>
 
 
@@ -152,16 +123,3 @@ if(!isset($_SESSION)) session_start();
   </div>
   </footer>
   </html>
-<?php
-  }else{
-        ob_start(); 
-             if($_SESSION["usuario"]->getTipo()=='1'){
-                  header("Location: ../view/gactcicios.php");  
-             }else{
-                header("Location: = /../../index.php"); 
-             }
-          }
-          
-        ob_end_flush();  
-
-?>

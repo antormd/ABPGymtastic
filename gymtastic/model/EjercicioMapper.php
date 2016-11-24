@@ -31,13 +31,6 @@ class EjercicioMapper{
         return $resultado;
     }
 
-    //Borra la relacion del ejercicio con la sesion
-    public static function deleteRelacion2($idEjercicio){
-        $db = new ConexionBD();
-        $resultado = $db->consulta("DELETE FROM sesion_ejercicio WHERE idEjercicio=\"$idEjercicio\"");
-        return $resultado;
-    }
-
 
     //Listar todos los Ejercicios   
     public static function listar()
@@ -83,7 +76,7 @@ class EjercicioMapper{
         if (mysqli_num_rows($sqlfind) > 0) {
             $row = mysqli_fetch_assoc($sqlfind);
             
-            $ejercicio= new Ejercicio($row['idEjercicio'],$row['nombre'],$row['descripcion'],$row['tipo'],$row['repeticiones'],$row['carga'],$row['creadoPor'],$row['imagen']);
+            $ejercicio= new Ejercicio($row['idEjercicio'],$row['nombre'],$row['descripcion'],$row['tipo'],$row['repeticiones'],$row['carga'],$row['creadoPor']);
             return $ejercicio;
         } else {
             return NULL;

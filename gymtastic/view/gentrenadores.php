@@ -5,8 +5,8 @@ include_once('../model/ModeloGeneral.php');
 
 if(!isset($_SESSION)) session_start();
  $user=$_SESSION["usuario"];
- if ($_SESSION["usuario"]->getTipo() =='1'){
-  $row = EjercicioController::getAll();
+ if ($_SESSION["usuario"]->getTipo() =='0'){
+  $row = UsuarioController::getAllEntrenadores();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,12 +75,12 @@ if(!isset($_SESSION)) session_start();
 
   <div class="container">
      
-     <h1>Ejercicios</h1>
+     <h1>Entrenadores</h1>
      <!-- BOTON MOSTRAR EJERCICIOS CREAR EJERCICIOS ELIMINAR EJERCICIOS-->
      <div class="row" style="margin-top: 20px; margin-bottom: 10px;">
 
        <div class="btn-group col-xs-6 col-sm-3 col-md-3 col-lg-3" role="group" style="margin-top: 10px;">
-        <a href="crearejercicio.php" style="text-decoration: none;"><button type="button" class="btn btn-default1" id="botonCrear">Crear Ejercicio</button></a>
+        <a href="crearentrenador.php" style="text-decoration: none;"><button type="button" class="btn btn-default1" id="botonCrear">Crear Entrenador</button></a>
        </div>
 
        </div><!-- FIN BOTONES -->
@@ -91,16 +91,15 @@ if(!isset($_SESSION)) session_start();
       <div class="row" style="margin-top: 20px;">
           <?php
           if($row!=null){ 
-            foreach ($row as $ejer) {
+            foreach ($row as $entr) {
           ?>
           <tr>
-                            <td width='10%'> <?php echo $ejer['nombre'] ?> </td>
-                            <td width='60%'> <?php echo $ejer['descripcion'] ?> </td>
-                            <td width='10%'> <?php echo $ejer['tipo'] ?> </td>
-                            <td width='5%'> <?php echo $ejer['repeticiones'] ?> </td>
-                            <td width='5%'> <?php echo $ejer['carga'] ?> </td>
-                            <td width='10%'>  <a href="modificarejercicio.php?id=<?php echo $ejer['idEjercicio']; ?>"><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Modificar</button></a></td>
-                            <td width='10%'>   <a href="eliminarejercicio.php?id=<?php echo $ejer['idEjercicio']; ?>"><button  class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Eliminar</button></a></td>
+                            <td width='10%'> <?php echo $entr['nombre'] ?> </td>
+                            <td width='60%'> <?php echo $entr['apellidos'] ?> </td>
+                            <td width='10%'> <?php echo $entr['fechaNac'] ?> </td>
+                            <td width='5%'> <?php echo $entr['username'] ?> </td>
+                            <td width='10%'>  <a href="modificarentrenador.php?id=<?php echo $entr['idUsuario']; ?>"><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Modificar</button></a></td>
+                            <td width='10%'>   <a href="eliminarentrenador.php?id=<?php echo $entr['idUsuario']; ?>"><button  class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>Eliminar</button></a></td>
                           </tr>
                           <br>
           <?php
