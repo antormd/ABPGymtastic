@@ -47,6 +47,16 @@ class UsuarioMapper{
         
     }
 	
+	public static function update2($nombre,$apellidos, $username, $fechaNac, $password)
+     {
+         $db = new ConexionBD();
+         $resultado = "UPDATE usuario SET nombre=\"$nombre\", apellidos =\"$apellidos\", fechaNac=\"$fechaNac\",password=\"$password\"  WHERE username= \"$username\"";
+         $db->consulta($resultado) or die('Error al crear el usuario');
+
+         $db->desconectar();
+         return true;
+     }
+	
 	 public static function delete($idUsuario){
         $db = new ConexionBD();
         $resultado =  $db->consulta("DELETE FROM usuario WHERE idUsuario=\"$idUsuario\"");
