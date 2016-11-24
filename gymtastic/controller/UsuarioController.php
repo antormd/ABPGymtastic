@@ -192,5 +192,5 @@ public static function login() {
 					}
 	}
 	
-}
+
 ?>
